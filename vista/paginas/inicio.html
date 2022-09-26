@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="../vendor/bootstrap-4.6.2-dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../vendor/bootstrap-4.6.2-dist/js/bootstrap.bundle.js"
+    />
+
+    <script src="../js/jsInicio.js"></script>
+
+    <title>Inicio de Mi Pagina</title>
+  </head>
+  <body>
+    <center>
+      <div>
+        <img
+          id="imgPrincipal"
+          src="../imgs/img_carrusel/ec68a7979200289ae4b32da6f0c8f1f0be873439_hq.jpg"
+          class="rounded-circle"
+          width="400px"
+          height="460px"
+          alt=""
+        />
+        <div id="btnsImg">
+          <button
+            onclick="mostrarFoto1();"
+            id="btnFoto1"
+            class="btn btn-warning"
+          >
+            Frase de amor
+          </button>
+          <button
+            onclick="mostrarFoto2();"
+            id="btnFoto2"
+            class="btn btn-secondary"
+          >
+            Foto de Goku
+          </button>
+          <button
+            id="btnInfo"
+            class="btn btn-info"
+            data-toggle="modal"
+            data-darget="#myModal"
+          >
+            +Información
+          </button>
+        </div>
+      </div>
+    </center>
+
+    <!--! The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal heading</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal Body -->
+          <div class="modal-body">Modal Body...</div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

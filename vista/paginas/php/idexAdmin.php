@@ -1,0 +1,85 @@
+<?php
+  session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../css/index.css"/>
+    <link rel="stylesheet" href="../../css/cssMenu.css" />
+    <link rel="stylesheet" href="../../css/cssdropdown.css" />
+    <link
+      rel="stylesheet"
+      href="vendor/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.css"
+    />
+
+    <title>MiPagina</title>
+  </head>
+
+  <body>
+    <div id="contenedorPrincipal">
+      <header id="encabezado">
+        <h1>Mi Pagina Web</h1>
+      </header>
+
+      <nav id="menu">
+        <ul>
+          <li>
+            <a
+              class="pancho"
+              href="../../paginas/inicio.html"
+              target="iframeContent"
+              ><i class="fa-thin fa-camera-security"></i> Inicio</i
+            ></a>
+          </li>
+          <li>
+            <a
+              href="../../paginas/acercaDe.html"
+              target="iframeContent"
+              >Acerca de</a
+            >
+          </li>
+          <li>
+            <a
+              href="../../paginas/galeria.html"
+              target="iframeContent"
+              >Galeria</a
+            >
+          </li>
+          <div>
+            </div>
+            <div class="dropdown" id="juanCarlos">
+              <button class="dropbtn">PERFIL</button>
+              <div class="dropdown-content">
+                <a href="#">Datos</a>
+                <a
+                href="../../paginas/login.html"
+                target="iframeContent"
+                >Iniciar Sesión</a
+                >
+                <a href="#">Cerrar Sesión</a>
+              </div>
+            </div>
+          </ul>
+          <h3>Bienvenidoooooooo! :
+            <?php
+              echo''.$_SESSION['UsuarioValido'];
+            ?>
+          </h3>
+      </nav>
+
+      <section id="contenido">
+        <iframe
+          id="iframeContent"
+          name="iframeContent"
+          src="../../paginas/inicio.html"
+          frameborder="0"
+        ></iframe>
+      </section>
+    </div>
+  </body>
+</html>
