@@ -1,5 +1,7 @@
 <?php
   session_start();
+  if (isset($_SESSION['UsuarioValido'])) {
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +63,7 @@
                 target="iframeContent"
                 >Iniciar Sesión</a
                 >
-                <a href="#">Cerrar Sesión</a>
+                <a href="cerrarSesion.php">Cerrar Sesión</a>
               </div>
             </div>
           </ul>
@@ -83,3 +85,13 @@
     </div>
   </body>
 </html>
+<?php
+  }else{
+    echo 'Debes iniciar sesion';
+    echo '<br>';
+    echo '
+    <a href="../../idex.html">
+      Iniciar Sesion
+    </a>';
+  }
+?>
