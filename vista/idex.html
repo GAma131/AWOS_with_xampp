@@ -14,12 +14,22 @@
     />
 
     <title>MiPagina</title>
+
+    <script src="vendor/alertifyjs/alertify.js"></script>
+    <link rel="stylesheet" href="vendor/alertifyjs/css/alertify.css" />
+    <script>
+      function mensaje() {
+        alertify;
+        alertify.alert("Permite notificaciones para más información \n(Proximamente!)", function () {
+        });
+      }
+    </script>
   </head>
 
-  <body>
+  <body onload="mensaje();">
     <div id="contenedorPrincipal">
       <header id="encabezado">
-        <h1>Mi Pagina Web</h1>
+        <h1 align="center">Enfermedades Mortales</h1>
       </header>
 
       <nav id="menu">
@@ -29,27 +39,27 @@
               class="pancho"
               href="paginas/inicio.html"
               target="iframeContent"
-              ><i class="fa-thin fa-camera-security"></i> Inicio</i
+              ><i class="fa-solid fa-house"></i> Inicio</i
             ></a>
           </li>
           <li>
             <a
               href="paginas/acercaDe.html"
               target="iframeContent"
-              >Acerca de</a
+              ><i class="fa-solid fa-sliders"></i> Estadisticas</a
             >
           </li>
           <li>
             <a
               href="paginas/galeria.html"
               target="iframeContent"
-              >Galeria</a
+              ><i class="fa-solid fa-virus-covid"></i> Sintomas</a
             >
           </li>
           <div class="dropdown" id="juanCarlos">
-            <button class="dropbtn">PERFIL</button>
+            <button class="dropbtn"><i class="fa-solid fa-bars-staggered"></i></button>
             <div class="dropdown-content">
-              <a href="#">Datos</a>
+              <a href="paginas/Datos.html" target="iframeContent">Contacto</a>
               <a
                 href="paginas/login.html"
                 target="iframeContent"

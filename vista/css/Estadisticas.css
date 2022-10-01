@@ -1,0 +1,17 @@
+body {
+    background-image: linear-gradient(
+        0deg,
+        rgba(160, 156, 156, 0.5),
+        rgb(255, 255, 255)
+      ),
+      url("../imgs/fondo.jpg");
+  }
+
+  th{
+    font-size: 1em;
+    font-weight: bolder;
+  }
+
+  td{
+    font-weight: bold;
+  }
