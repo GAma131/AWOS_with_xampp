@@ -6,11 +6,10 @@
         private $descripcion;
 
         //*Constructor
-        public function _constructor($nombreRolUsuario, $descripcion){
+        public function _construct($nombreRolUsuario, $descripcion)
+        {
             $this->nombreRolUsuario=$nombreRolUsuario;
             $this->descripcion=$descripcion;
         }
-
-        
     }
 ?>
