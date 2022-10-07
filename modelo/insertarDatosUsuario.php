@@ -9,13 +9,6 @@ try {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //* insert row 1
-    $nombre = "John";
-    $APaterno = "Doe";
-    $AMaterno = "Perez";
-    $email = "john@example.com";
-    $telefono = "7731239998";
-    $estatus = "1";
 
     // prepare sql and bind parameters
     $stmt = $conn->prepare("call loginbd.sp_InsertarUsuario(:nombre, :APaterno, :AMaterno, :email, :telefono, :estatus);");
@@ -27,10 +20,18 @@ try {
     $stmt->bindParam(':telefono', $telefono);
     $stmt->bindParam(':estatus', $estatus);
 
+    //* insert row 1
+    $nombre = "Juanito";
+    $APaterno = "Jimenez";
+    $AMaterno = "Hernandez";
+    $email = "juancho@example.com";
+    $telefono = "7341239898";
+    $estatus = "0";
+
     $stmt->execute();
 
 
-    echo "New records created successfully";
+    echo "La inserción fue exitosa ==> Datos: $nombre - $APaterno - $AMaterno - $email - $telefono - $estatus";
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
