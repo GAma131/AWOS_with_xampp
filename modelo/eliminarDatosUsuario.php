@@ -1,0 +1,29 @@
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "28082003";
+    $dbname = "loginbd";
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+        // prepare sql and bind parameters
+        $stmt = $conn->prepare("call loginbd.sp_eliminarUsuario(:id);");
+
+        $stmt->bindParam(':id', $id);
+
+        //* update row 1
+        $id = "15";
+
+        $stmt->execute();
+
+
+        echo "Los cambios fueron exitosos ==> idUsuario: $id";
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+    $conn = null;
+?>
