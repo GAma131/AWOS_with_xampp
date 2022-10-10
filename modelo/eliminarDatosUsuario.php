@@ -16,7 +16,7 @@
         $stmt->bindParam(':id', $id);
 
         //* update row 1
-        $id = "15";
+        $id = $_POST["inpID"];
 
         $stmt->execute();
 

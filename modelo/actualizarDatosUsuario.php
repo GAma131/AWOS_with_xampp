@@ -13,7 +13,7 @@
         // prepare sql and bind parameters
         $stmt = $conn->prepare("call loginbd.sp_actualizarUsuario(:id, :nombre, :APaterno, :AMaterno, :email, :telefono, :estatus);");
 
-        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':id', $_POST["inpID"]);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':APaterno', $APaterno);
         $stmt->bindParam(':AMaterno', $AMaterno);
@@ -22,13 +22,13 @@
         $stmt->bindParam(':estatus', $estatus);
 
         //* update row 1
-        $id = "15";
-        $nombre = "Pablo";
-        $APaterno = "Pela";
-        $AMaterno = "papas";
-        $email = "pablito@example.com";
-        $telefono = "7341793798";
-        $estatus = "0";
+        $id = $_POST["inpID"];
+        $nombre = $_POST["inpNombre"];
+        $APaterno = $_POST["inpAPaterno"];
+        $AMaterno = $_POST["inpAMaterno"];
+        $email = $_POST["inpEmail"];
+        $telefono = $_POST["inpTelefono"];
+        $estatus = $_POST["inpEstatus"];
 
         $stmt->execute();
 

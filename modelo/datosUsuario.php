@@ -1,5 +1,5 @@
 <?php
-    echo "<table style='border: solid 1px black;'>";
+    echo "<table style='border: solid 1px black; margin: 40px auto;'>";
     echo "
         <tr>
             <th>Id</th>
@@ -18,7 +18,7 @@
     }
 
     function current() {
-        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
+        return "<td align='center' style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
     }
 
     function beginChildren() {

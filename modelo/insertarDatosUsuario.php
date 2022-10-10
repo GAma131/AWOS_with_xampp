@@ -21,12 +21,12 @@ try {
     $stmt->bindParam(':estatus', $estatus);
 
     //* insert row 1
-    $nombre = "Juanito";
-    $APaterno = "Jimenez";
-    $AMaterno = "Hernandez";
-    $email = "juancho@example.com";
-    $telefono = "7341239898";
-    $estatus = "0";
+    $nombre = $_POST["inpNombre"];
+    $APaterno = $_POST["inpAPaterno"];
+    $AMaterno = $_POST["inpAMaterno"];
+    $email = $_POST["inpEmail"];
+    $telefono = $_POST["inpTelefono"];
+    $estatus = $_POST["inpEstatus"];
 
     $stmt->execute();
 
