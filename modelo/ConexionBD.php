@@ -11,7 +11,7 @@
         public $conn;//es objeto
 
         //*constructor
-        public function __construct($serverName, $userName,$userPassword,$bdName)
+        public function __construct($serverName, $userName, $userPassword, $bdName)
         {
             $this->serverName=$serverName;
             $this->userName=$userName;
@@ -38,11 +38,18 @@
             try {
             $this->conn=new PDO($this->dsn,$this->userName,$this->userPassword);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo'¡CONEXION EXITOSA!';
-            }catch (PDOException $e)
-            {
 
+            if (isset($this->conn)) {
+                echo'¡CONEXION EXITOSA!';
+                return true;
+            }
+            // else {
+            //     return false;
+            // }
+
+            }catch (PDOException $e) {
                 echo'la conexion fallo'. $e->getMessage();
+                return false;
 
             }
         }
