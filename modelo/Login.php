@@ -1,158 +1,80 @@
 <?php
-include_once(ConexionBD.php);
-include_once(RolUsuario.php);
-include_once(usuario.php);
-
-class login {
-    private $idlogin;
+include_once ("RolUsuario.php");
+include_once ("Usuario.php");
+include_once ("ConexionBD.php");
+class Login
+{
+    //Atributos
     private $nombreLogin;
     private $claveLogin;
-    private $fechaCreacionLogin;
-    private $estatusLogin;
-    RolUsuario $objRolUsuario;
-    Usuario $objUsuario;
-    ConexionBD $objConexionBD;
+    public Usuario $objUsuario;
+    public ConexionBD $objConexionBD;
+    public RolUsuario $objRolUsuario;
     private $stmt;
-}
 
-// *CONSTRUCTOR
-public _construct($nombreLogin, $claveLogin){
-    $this->nombreLogin=$nombreLogin;
-    $this->claveLogin=$claveLogin;
-
-}
-
-// *METODOS SET Y GET
-/**
- * Get the value of idlogin
- */
-public function getIdlogin()
-{
-    return $this->idlogin;
-}
-
-/**
- * Set the value of idlogin
- *
- * @return  self
- */
-public function setIdlogin($idlogin)
-{
-    $this->idlogin = $idlogin;
-
-    return $this;
-}
-
-/**
- * Get the value of nombreLogin
- */
-public function getNombreLogin()
-{
-    return $this->nombreLogin;
-}
-
-/**
- * Set the value of nombreLogin
- *
- * @return  self
- */
-public function setNombreLogin($nombreLogin)
-{
-    $this->nombreLogin = $nombreLogin;
-
-    return $this;
-}
-
-/**
- * Get the value of claveLogin
- */
-public function getClaveLogin()
-{
-    return $this->claveLogin;
-}
-
-/**
- * Set the value of claveLogin
- *
- * @return  self
- */
-public function setClaveLogin($claveLogin)
-{
-    $this->claveLogin = $claveLogin;
-
-    return $this;
-}
-
-/**
- * Get the value of fechaCreacionLogin
- */
-public function getFechaCreacionLogin()
-{
-    return $this->fechaCreacionLogin;
-}
-
-/**
- * Set the value of fechaCreacionLogin
- *
- * @return  self
- */
-public function setFechaCreacionLogin($fechaCreacionLogin)
-{
-    $this->fechaCreacionLogin = $fechaCreacionLogin;
-
-    return $this;
-}
-
-/**
- * Get the value of estatusLogin
- */
-public function getEstatusLogin()
-{
-    return $this->estatusLogin;
-}
-
-/**
- * Set the value of estatusLogin
- *
- * @return  self
- */
-public function setEstatusLogin($estatusLogin)
-{
-    $this->estatusLogin = $estatusLogin;
-
-    return $this;
-}
-
-// *METODOS PARA LA GESTIÓN DLE CRUD
-
-public function validarLogin(){
-    $objConexionBD = new ConexionBD('localhost:3306','root','28082003','loginbd');
-    try {
-        if ($objConexionBD->conectarBD()) {
-            $this->stmt=$objConexionBD->conn->prepare('call sp_validarLogin(:nombreLogin, :ClaveLogin)');
-            $this->stmt->binParam(':nombreLogin',$this->getNombreLogin);
-            $this->stmt->binParam(':claveLogin',$this->getClaveLogin);
-
-            $this->stmt->execute();
-
-            $datosConsulta=$this->stm->setFechMode(PDO::FETCH_ASSOC);
-            $datosConsulta=$this->stm->fetchAll();
-            session_start();
-
-            foreach ($datosConsulta as $datos) {
-                $_SESSION['usuarioValido']=$datos[0];
-                $_SESSION['claveUsuario']=$datos[1];
-            }
-
-            if (isset($_SESSION['usuarioValido'])) {
-                return true;
-            }else{
-                return false;
-            }
-        }
-    } catch (PDOException $e) {
-        echo "Error de sintaxis de SQL y/o Cpmexión".$e->getMessage();
+    public function __construct($nombreLogin, $claveLogin)
+    {
+        $this->nombreLogin = $nombreLogin;
+        $this->claveLogin = $claveLogin;
     }
-}
 
-?>
+    public function setNombreLogin($nombreLogin)
+    {
+        $this->NombreLogin = $nombreLogin;
+    }
+
+    public function getNombreLogin()
+    {
+        return $this->NombreLogin;
+    }
+
+    public function validarLogin()
+    {
+        $objConexionBD = new ConexionBD('localhost:3306', 'root', '28082003', 'loginbd');
+        try {
+            if ($objConexionBD->conectarBD()) {
+                $this->stmt = $objConexionBD->conn->prepare('call sp_ValidarLogin(:nombreLogin, :claveLogin)');
+                $this->stmt->bindParam(':nombreLogin', $this->nombreLogin);
+                $this->stmt->bindParam(':claveLogin', $this->claveLogin);
+
+                $this->stmt->execute();
+
+                //$datosConsulta=$this->stm->setFechMode(PDO::FETCH_ASSOC);
+                $datosConsulta = $this->stmt->fetchAll();
+                session_start();
+
+                foreach ($datosConsulta as $datos) {
+                    $_SESSION['UsuarioValido'] = $datos[2];
+                    $_SESSION['claveUsuario'] = $datos[3];
+                }
+
+                if (isset($_SESSION['UsuarioValido'])) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } catch (PDOException $e) {
+            echo "Error de sintaxis de SQL y/o Cpmexión" . $e->getMessage();
+        }
+    }
+
+    // public function validarLogin(){
+    //   try{
+    //     $objConexionBD=new ConexionBD('localhost:3306','root','12345','loginbd');
+    //     if ($objConexionBD->conectarBD()) {
+
+    //       $this->stmt=$objConexionBD->conn->prepare("call sp_ValidarLogin(:nombreLogin, :claveLogin)");
+    //       $this->stmt->bindParam(':NombreLogin',$this->NombreLogin);
+    //       $this->stmt->bindParam(':claveLogin',$this->claveLogin);
+
+    //       $this->stmt->execute();
+
+    //     }
+
+    //   }catch(PDOException $e){
+    //       echo "  Error de sintaxis de SQL y/o Conexion" . $e->getMessage();
+    //   }
+    // }
+
+}
