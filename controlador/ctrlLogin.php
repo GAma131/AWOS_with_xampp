@@ -23,6 +23,12 @@
         echo'
         <script>window.location.href="../vista/paginas/php/idexAdmin.php"</script>';
     }else {
-        echo "\nUsuario y/o contraseña incorrecta";
+        echo '<br>';
+        echo "Usuario y/o contraseña incorrecta";
+        echo '<br>';
+        echo '
+        <a href="../vista/idex.html">
+        Intentar de nuevo
+        </a>';
     }
 ?>

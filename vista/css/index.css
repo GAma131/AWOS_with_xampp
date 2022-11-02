@@ -3,25 +3,26 @@ body {
 }
 
 #contenedorPrincipal {
-  border: 3px solid black;
-  width: 90%;
+  border: 3px solid rgb(182, 99, 90);
+  width: 92%;
+  height: 95%;
   margin: auto;
-  box-shadow: 5px 5px gray;
 }
 
 #encabezado {
-  color: white;
+  color: salmon;
+  font-weight: bolder;
+  font-size: large;
   height: 100%;
-  background-size: auto;
 }
 
 #iframeContent {
   width: 100%;
-  height: 400px;
+  height: 100%;
 }
 
 #contenido {
-  height: 400px;
+  height: 470px;
 }
 
 /* Login */

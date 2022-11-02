@@ -6,7 +6,7 @@
     $nombreUsuario=$_REQUEST["txtUsuario"];
     $claveUsuario=$_REQUEST["txtClave"];
 
-    if ($nombreUsuario=="Gama" && $claveUsuario=="1234") {
+    if ($nombreUsuario=="txtUsuario" && $claveUsuario=="txtClave") {
         session_start();
         $_SESSION['UsuarioValido']= $nombreUsuario;
 

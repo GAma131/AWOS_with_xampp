@@ -35,7 +35,7 @@ li.dropdown {
 }
 
 .dropdown-content a:hover {
-  background-color: pink;
+  background-color: rgb(235, 216, 219);
 }
 
 .dropdown:hover .dropdown-content {
@@ -44,7 +44,7 @@ li.dropdown {
 
 .dropbtn {
   border-left: 1px solid #bbb;
-  background-color: palevioletred;
+  background-color: rgba(206, 28, 246, 0.608);
   color: white;
   padding: 16px;
   font-size: 16px;

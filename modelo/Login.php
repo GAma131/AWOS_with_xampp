@@ -48,11 +48,11 @@ class Login
                     $_SESSION['claveUsuario'] = $datos[3];
                 }
 
-                if (isset($_SESSION['UsuarioValido'])) {
-                    return true;
-                } else {
-                    return false;
-                }
+                // if (isset($_SESSION['UsuarioValido'])) {
+                //     return true;
+                // } else {
+                //     return false;
+                // }
             }
         } catch (PDOException $e) {
             echo "Error de sintaxis de SQL y/o Cpmexión" . $e->getMessage();

@@ -43,9 +43,9 @@
                 echo'¡CONEXION EXITOSA!';
                 return true;
             }
-            // else {
-            //     return false;
-            // }
+            else {
+                return false;
+            }
 
             }catch (PDOException $e) {
                 echo'la conexion fallo'. $e->getMessage();

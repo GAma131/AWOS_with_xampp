@@ -1,6 +1,6 @@
 <?php
   session_start();
-//   if (isset($_SESSION['UsuarioValido'])) {
+  if (isset($_SESSION['UsuarioValido'])) {
 
 ?>
 
@@ -64,12 +64,12 @@
 
 </html>
 <?php
-//   }else{
-//     echo 'Debes iniciar sesion';
-//     echo '<br>';
-//     echo '
-//     <a href="../../idex.html">
-//       Iniciar Sesion
-//     </a>';
-//   }
+  }else{
+    echo 'Debes iniciar sesion';
+    echo '<br>';
+    echo '
+    <a href="../../idex.html">
+      Iniciar Sesion
+    </a>';
+  }
 ?>
